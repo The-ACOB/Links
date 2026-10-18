@@ -18,11 +18,20 @@ export const metadata: Metadata = {
     url: "https://links.theacob.com",
     siteName: "ACOB",
     type: "website",
+    images: [
+      {
+        url: "/assets/preview.jpg",
+        width: 2000,
+        height: 2000,
+        alt: "ACOB LinksHub",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "ACOB LinksHub",
     description: "Every way to connect with ACOB, in one place.",
+    images: ["/assets/preview.jpg"],
   },
 };
 export const viewport: Viewport = {
