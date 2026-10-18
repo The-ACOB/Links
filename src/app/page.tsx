@@ -2,24 +2,21 @@ import Image from "next/image";
 import {
   ArrowUpRight,
   BookOpen,
-  BriefcaseBusiness,
-  Camera,
-  CirclePlay,
   Globe2,
-  MessageCircle,
   Trophy,
   UsersRound,
 } from "lucide-react";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa6";
 
 const links = [
-  { title: "Official Website", detail: "Explore ACOB", href: "https://theacob.com", icon: Globe2, featured: true },
-  { title: "Facebook", detail: "News, announcements & events", href: "https://www.facebook.com/appliedcognitiobd", icon: MessageCircle },
-  { title: "Instagram", detail: "Behind the scenes and updates", href: "https://www.instagram.com/the.acobd", icon: Camera },
-  { title: "YouTube", detail: "Videos and Inside Excellence", href: "https://www.youtube.com/@appliedcognitiobd", icon: CirclePlay },
-  { title: "LinkedIn", detail: "Our professional community", href: "https://www.linkedin.com/company/appliedcognitiobd", icon: BriefcaseBusiness },
-  { title: "Explore Olympiads", detail: "Challenges built around reasoning", href: "https://theacob.com/olympiads", icon: Trophy, featured: true },
-  { title: "Learning Resources", detail: "Guides, materials and more", href: "https://theacob.com/resources", icon: BookOpen },
-  { title: "Join the ACOB Team", detail: "Ambassadors and opportunities", href: "https://theacob.com/ambassadors", icon: UsersRound },
+  { title: "Official Website", href: "https://theacob.com", icon: Globe2, featured: true, kind: "website" },
+  { title: "Facebook", href: "https://www.facebook.com/appliedcognitiobd", icon: FaFacebookF, kind: "facebook" },
+  { title: "Instagram", href: "https://www.instagram.com/the.acobd", icon: FaInstagram, kind: "instagram" },
+  { title: "YouTube", href: "https://www.youtube.com/@appliedcognitiobd", icon: FaYoutube, kind: "youtube" },
+  { title: "LinkedIn", href: "https://www.linkedin.com/company/appliedcognitiobd", icon: FaLinkedinIn, kind: "linkedin" },
+  { title: "Explore Olympiads", href: "https://theacob.com/olympiads", icon: Trophy, featured: true, kind: "olympiads" },
+  { title: "Learning Resources", href: "https://theacob.com/resources", icon: BookOpen, kind: "resources" },
+  { title: "Join the ACOB Team", href: "https://theacob.com/ambassadors", icon: UsersRound, kind: "team" },
 ];
 
 export default function Home() {
@@ -59,12 +56,12 @@ export default function Home() {
             <span>01 — 08</span>
           </div>
           <nav className="links" aria-label="ACOB links">
-            {links.map(({ title, detail, href, icon: Icon, featured }, index) => (
-              <a key={title} className={`link-card${featured ? " featured" : ""}`} href={href} target="_blank" rel="noreferrer noopener">
+            {links.map(({ title, href, icon: Icon, featured, kind }, index) => (
+              <a key={title} className={`link-card${featured ? " featured" : ""} link-${kind}`} href={href} target="_blank" rel="noreferrer noopener">
                 <span className="link-number">{String(index + 1).padStart(2, "0")}</span>
-                <span className="link-icon"><Icon aria-hidden="true" strokeWidth={1.55} /></span>
-                <span className="link-copy"><span className="link-title">{title}</span><span className="link-detail">{detail}</span></span>
-                <span className="link-arrow" aria-hidden="true"><ArrowUpRight strokeWidth={1.5} /></span>
+                <span className="link-icon"><Icon aria-hidden="true" strokeWidth={1.7} /></span>
+                <span className="link-title">{title}</span>
+                <span className="link-arrow" aria-hidden="true"><ArrowUpRight strokeWidth={1.6} /></span>
               </a>
             ))}
           </nav>
